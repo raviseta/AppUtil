@@ -10,9 +10,12 @@ import UIKit
 
 class FontLoader {
 
-    @MainActor private static var loadedFonts: Set<AppFontNames> = .init()
-
-    @MainActor static func loadFontIfNeeded(for font: AppFontNames, in bundle: Bundle = Bundle.module) {
+    nonisolated(unsafe) private static var loadedFonts: Set<AppFontNames> = .init()
+    private static let lock = NSLock()
+    
+    static func loadFontIfNeeded(for font: AppFontNames, in bundle: Bundle = Bundle.module) {
+        lock.lock()
+        defer { lock.unlock() }
         
         guard !Self.loadedFonts.contains(font) else {
             /// already loaded no need to do anything
