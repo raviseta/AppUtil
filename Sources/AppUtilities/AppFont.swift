@@ -23,8 +23,8 @@ public struct AppFont {
     public static let subHeader = UIFont.poppins(ofSize: 17, weight: .bold)
     public static let subHeader2 = UIFont.poppins(ofSize: 14, weight: .bold)
     public static let description = UIFont.poppins(ofSize: 16, weight: .regular)
-    static let popinsMedium = UIFont.poppins(ofSize: 14, weight: .medium)
-    static let bodyMedium = UIFont.poppins(ofSize: 17, weight: .semibold)
+    public static let popinsMedium = UIFont.poppins(ofSize: 14, weight: .medium)
+    public static let bodyMedium = UIFont.poppins(ofSize: 17, weight: .semibold)
 }
 
 public extension UIFont {
